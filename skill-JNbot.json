@@ -1,0 +1,424 @@
+{
+  "intents": [
+    {
+      "intent": "pedidos",
+      "examples": [
+        {
+          "text": "shorts"
+        },
+        {
+          "text": "bermudas"
+        },
+        {
+          "text": "vestidos"
+        },
+        {
+          "text": "recem nascidos"
+        },
+        {
+          "text": "pedido"
+        },
+        {
+          "text": "gostaria de ver fotos"
+        },
+        {
+          "text": "vou mandar fotos da roupa que eu gostei"
+        },
+        {
+          "text": "conjuntos"
+        },
+        {
+          "text": "roupa feminina"
+        },
+        {
+          "text": "roupa masculina"
+        },
+        {
+          "text": "camisas"
+        },
+        {
+          "text": "laços"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "saudacao",
+      "examples": [
+        {
+          "text": "Ola"
+        },
+        {
+          "text": "Oi"
+        },
+        {
+          "text": "Bom dia"
+        },
+        {
+          "text": "Boa tarde"
+        },
+        {
+          "text": "Tudo bem?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "despedida",
+      "examples": [
+        {
+          "text": "até a proxima"
+        },
+        {
+          "text": "agradeço"
+        },
+        {
+          "text": "não quero mais nada"
+        },
+        {
+          "text": "não, obrigado"
+        },
+        {
+          "text": "isso é tudo"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "trocar",
+      "examples": [
+        {
+          "text": "trocar"
+        },
+        {
+          "text": "gostaria de fazer uma troca"
+        },
+        {
+          "text": "quero trocar"
+        },
+        {
+          "text": "comprei do tamanho errado"
+        },
+        {
+          "text": "não coube"
+        },
+        {
+          "text": "veio errado"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "horario_funcionamento",
+      "examples": [
+        {
+          "text": "qual horario de funcionamento?"
+        },
+        {
+          "text": "fecha que horas?"
+        },
+        {
+          "text": "hoje esta funcionando?"
+        },
+        {
+          "text": "Que horas abre?"
+        },
+        {
+          "text": "esta abeto?"
+        }
+      ],
+      "description": ""
+    }
+  ],
+  "entities": [
+    {
+      "entity": "reserva",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "reserva",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "reservar",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "tamanho",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "p",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "m",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "g",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "gg",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "modelo",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "referencia",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "pagamento",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "cartao de debito",
+          "synonyms": [
+            "debito"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "dinheiro",
+          "synonyms": [
+            "especie"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "cartao de credito",
+          "synonyms": [
+            "credito"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "cep",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "cep",
+          "patterns": [
+            "[0-9]{5}-[0-9]{3}"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    }
+  ],
+  "metadata": {
+    "api_version": {
+      "major_version": "v2",
+      "minor_version": "2018-11-08"
+    }
+  },
+  "dialog_nodes": [
+    {
+      "type": "standard",
+      "title": "Tamanho",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "nao sei oq botar aqui"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1590427118913",
+      "conditions": "@tamanho",
+      "dialog_node": "node_8_1590429041597"
+    },
+    {
+      "type": "standard",
+      "title": "Reserva",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "🕛 Fazemos reserva com o prazo de um dia, após isso se seu pedido não for finalizado sua reserva será cancelada automaticamente, Agradecemos a compreensão. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1590426678914",
+      "conditions": "@reserva",
+      "dialog_node": "node_8_1590429080255",
+      "previous_sibling": "node_1_1590427118913"
+    },
+    {
+      "type": "standard",
+      "title": "Referencia",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "🤩 Acabei de verificar e o produto que deseja temos em estoque, estão disponíveis os seguintes tamanhos : P , M , G , GG. Qual tamanho desejado?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_9_1590426678914",
+      "conditions": "@modelo",
+      "dialog_node": "node_1_1590427118913"
+    },
+    {
+      "type": "standard",
+      "title": "Horario_Funcionamento",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "🕰️ Estamos funcionando de 11:00 às 19:30 horas, \n📅 De segunda à sábado. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#horario_funcionamento",
+      "dialog_node": "node_3_1590429615032",
+      "previous_sibling": "node_10_1590429292055"
+    },
+    {
+      "type": "standard",
+      "title": "Fazer pedido",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "📸 Consulte o catálogo que se encontra no nosso perfil acima, ou visite o nosso instagram e informe a referência que está na foto do produto desejado para solicitar o seu pedido! \n🛵 Taxa de entrega variadas por bairro!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#pedidos",
+      "dialog_node": "node_9_1590426678914",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Em outros casos",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Eu não entendi. Você pode tentar reformular a frase."
+              },
+              {
+                "text": "Você pode reformular sua afirmação? Eu não estou entendendo."
+              },
+              {
+                "text": "Eu não entendi o sentido."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "anything_else",
+      "dialog_node": "Em outros casos",
+      "previous_sibling": "node_3_1590429615032",
+      "disambiguation_opt_out": true
+    },
+    {
+      "type": "standard",
+      "title": "Trocas",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "🔄  Troca apenas com etiqueta, \n⏳ Prazo para troca de 5 dias,\n🚫 Não fazemos troca de peças promocionais,\n✔️ As trocas são realizadas apenas em loja física. \nPara mais informações entrar em contato por o telefone da loja. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#trocar",
+      "dialog_node": "node_10_1590429292055",
+      "previous_sibling": "node_9_1590426678914"
+    },
+    {
+      "type": "standard",
+      "title": "Bem-vindo",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Olá. É um prazer ter você aqui 💗,\n✈️📫  Entregas para todo Brasil ,\n✅ Responderemos por ordem!\n"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#saudacao",
+      "dialog_node": "Bem-vindo"
+    }
+  ],
+  "counterexamples": [],
+  "system_settings": {
+    "disambiguation": {
+      "prompt": "Você quis dizer:",
+      "enabled": true,
+      "randomize": true,
+      "max_suggestions": 5,
+      "suggestion_text_policy": "title",
+      "none_of_the_above_prompt": "Nenhuma das anteriores"
+    },
+    "system_entities": {
+      "enabled": true
+    },
+    "human_agent_assist": {
+      "prompt": "Você quis dizer:"
+    }
+  },
+  "learning_opt_out": false,
+  "name": "JNbot",
+  "language": "pt-br",
+  "description": ""
+}
