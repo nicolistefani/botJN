@@ -1,20 +1,95 @@
 {
   "intents": [
     {
-      "intent": "pedidos",
+      "intent": "despedida",
       "examples": [
         {
-          "text": "shorts"
+          "text": "até a proxima"
         },
         {
-          "text": "bermudas"
+          "text": "isso é tudo"
         },
         {
-          "text": "vestidos"
+          "text": "não, obrigado"
         },
         {
-          "text": "recem nascidos"
+          "text": "não quero mais nada"
         },
+        {
+          "text": "agradeço"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "saudacao",
+      "examples": [
+        {
+          "text": "Oi"
+        },
+        {
+          "text": "Tudo bem?"
+        },
+        {
+          "text": "Boa tarde"
+        },
+        {
+          "text": "Bom dia"
+        },
+        {
+          "text": "Ola"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "trocar",
+      "examples": [
+        {
+          "text": "gostaria de fazer uma troca"
+        },
+        {
+          "text": "trocar"
+        },
+        {
+          "text": "veio errado"
+        },
+        {
+          "text": "não coube"
+        },
+        {
+          "text": "comprei do tamanho errado"
+        },
+        {
+          "text": "quero trocar"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "horario_funcionamento",
+      "examples": [
+        {
+          "text": "qual horario de funcionamento?"
+        },
+        {
+          "text": "esta abeto?"
+        },
+        {
+          "text": "Que horas abre?"
+        },
+        {
+          "text": "hoje esta funcionando?"
+        },
+        {
+          "text": "fecha que horas?"
+        }
+      ],
+      "description": ""
+    },
+    {
+      "intent": "pedidos",
+      "examples": [
         {
           "text": "pedido"
         },
@@ -38,99 +113,63 @@
         },
         {
           "text": "laços"
-        }
-      ],
-      "description": ""
-    },
-    {
-      "intent": "saudacao",
-      "examples": [
-        {
-          "text": "Ola"
         },
         {
-          "text": "Oi"
+          "text": "shorts"
         },
         {
-          "text": "Bom dia"
+          "text": "bermudas"
         },
         {
-          "text": "Boa tarde"
+          "text": "vestidos"
         },
         {
-          "text": "Tudo bem?"
-        }
-      ],
-      "description": ""
-    },
-    {
-      "intent": "despedida",
-      "examples": [
-        {
-          "text": "até a proxima"
-        },
-        {
-          "text": "agradeço"
-        },
-        {
-          "text": "não quero mais nada"
-        },
-        {
-          "text": "não, obrigado"
-        },
-        {
-          "text": "isso é tudo"
-        }
-      ],
-      "description": ""
-    },
-    {
-      "intent": "trocar",
-      "examples": [
-        {
-          "text": "trocar"
-        },
-        {
-          "text": "gostaria de fazer uma troca"
-        },
-        {
-          "text": "quero trocar"
-        },
-        {
-          "text": "comprei do tamanho errado"
-        },
-        {
-          "text": "não coube"
-        },
-        {
-          "text": "veio errado"
-        }
-      ],
-      "description": ""
-    },
-    {
-      "intent": "horario_funcionamento",
-      "examples": [
-        {
-          "text": "qual horario de funcionamento?"
-        },
-        {
-          "text": "fecha que horas?"
-        },
-        {
-          "text": "hoje esta funcionando?"
-        },
-        {
-          "text": "Que horas abre?"
-        },
-        {
-          "text": "esta abeto?"
+          "text": "recem nascidos"
         }
       ],
       "description": ""
     }
   ],
   "entities": [
+    {
+      "entity": "cep",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "cep",
+          "patterns": [
+            "[0-9]{5}-[0-9]{3}"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "tamanho",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "gg",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "p",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "m",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "g",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
     {
       "entity": "reserva",
       "values": [
@@ -148,27 +187,22 @@
       "fuzzy_match": true
     },
     {
-      "entity": "tamanho",
+      "entity": "pagamento",
       "values": [
         {
           "type": "synonyms",
-          "value": "p",
-          "synonyms": []
+          "value": "cartao",
+          "synonyms": [
+            "debito",
+            "credito"
+          ]
         },
         {
           "type": "synonyms",
-          "value": "m",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "g",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "gg",
-          "synonyms": []
+          "value": "dinheiro",
+          "synonyms": [
+            "especie"
+          ]
         }
       ],
       "fuzzy_match": true
@@ -183,46 +217,6 @@
         }
       ],
       "fuzzy_match": true
-    },
-    {
-      "entity": "pagamento",
-      "values": [
-        {
-          "type": "synonyms",
-          "value": "cartao de debito",
-          "synonyms": [
-            "debito"
-          ]
-        },
-        {
-          "type": "synonyms",
-          "value": "dinheiro",
-          "synonyms": [
-            "especie"
-          ]
-        },
-        {
-          "type": "synonyms",
-          "value": "cartao de credito",
-          "synonyms": [
-            "credito"
-          ]
-        }
-      ],
-      "fuzzy_match": true
-    },
-    {
-      "entity": "cep",
-      "values": [
-        {
-          "type": "patterns",
-          "value": "cep",
-          "patterns": [
-            "[0-9]{5}-[0-9]{3}"
-          ]
-        }
-      ],
-      "fuzzy_match": true
     }
   ],
   "metadata": {
@@ -233,24 +227,16 @@
   },
   "dialog_nodes": [
     {
-      "type": "standard",
-      "title": "Tamanho",
-      "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "nao sei oq botar aqui"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
+      "type": "frame",
+      "title": "pagamento",
+      "parent": "node_8_1590429041597",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
       },
-      "parent": "node_1_1590427118913",
-      "conditions": "@tamanho",
-      "dialog_node": "node_8_1590429041597"
+      "conditions": "@pagamento",
+      "dialog_node": "node_8_1590450147609"
     },
     {
       "type": "standard",
@@ -294,14 +280,31 @@
       "dialog_node": "node_1_1590427118913"
     },
     {
-      "type": "standard",
-      "title": "Horario_Funcionamento",
+      "type": "response_condition",
+      "output": {
+        "text": {
+          "values": [
+            "Precisa de troco pra quanto?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "node_8_1590450147609",
+      "conditions": "@pagamento:dinheiro",
+      "dialog_node": "response_10_1590450526901",
+      "previous_sibling": "response_1_1590450328848"
+    },
+    {
+      "type": "response_condition",
       "output": {
         "generic": [
           {
             "values": [
               {
-                "text": "🕰️ Estamos funcionando de 11:00 às 19:30 horas, \n📅 De segunda à sábado. "
+                "text": "Certo, vou mandar a máquina para cartão."
+              },
+              {
+                "text": "Ok, precisa de troco?"
               }
             ],
             "response_type": "text",
@@ -309,19 +312,20 @@
           }
         ]
       },
-      "conditions": "#horario_funcionamento",
-      "dialog_node": "node_3_1590429615032",
-      "previous_sibling": "node_10_1590429292055"
+      "parent": "node_8_1590450147609",
+      "conditions": "@pagamento:cartao",
+      "dialog_node": "response_1_1590450328848",
+      "previous_sibling": "node_10_1590450730270"
     },
     {
       "type": "standard",
-      "title": "Fazer pedido",
+      "title": "troco",
       "output": {
         "generic": [
           {
             "values": [
               {
-                "text": "📸 Consulte o catálogo que se encontra no nosso perfil acima, ou visite o nosso instagram e informe a referência que está na foto do produto desejado para solicitar o seu pedido! \n🛵 Taxa de entrega variadas por bairro!"
+                "text": "Anotado, troco para x reais. Obrigado!!"
               }
             ],
             "response_type": "text",
@@ -329,9 +333,29 @@
           }
         ]
       },
-      "conditions": "#pedidos",
-      "dialog_node": "node_9_1590426678914",
-      "previous_sibling": "Bem-vindo"
+      "parent": "node_8_1590450147609",
+      "conditions": "@pagamento:dinheiro",
+      "dialog_node": "node_10_1590450730270"
+    },
+    {
+      "type": "standard",
+      "title": "Tamanho",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok, tudo certo com seu pedido. Qual a forma de pagamento?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1590427118913",
+      "conditions": "@tamanho",
+      "dialog_node": "node_8_1590429041597"
     },
     {
       "type": "standard",
@@ -382,6 +406,46 @@
     },
     {
       "type": "standard",
+      "title": "Fazer pedido",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "📸 Consulte o catálogo que se encontra no nosso perfil acima, ou visite o nosso instagram e informe a referência que está na foto do produto desejado para solicitar o seu pedido! \n🛵 Taxa de entrega variadas por bairro!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#pedidos",
+      "dialog_node": "node_9_1590426678914",
+      "previous_sibling": "Bem-vindo"
+    },
+    {
+      "type": "standard",
+      "title": "Horario_Funcionamento",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "🕰️ Estamos funcionando de 11:00 às 19:30 horas, \n📅 De segunda à sábado. "
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "#horario_funcionamento",
+      "dialog_node": "node_3_1590429615032",
+      "previous_sibling": "node_10_1590429292055"
+    },
+    {
+      "type": "standard",
       "title": "Bem-vindo",
       "output": {
         "generic": [
@@ -396,7 +460,7 @@
           }
         ]
       },
-      "conditions": "#saudacao",
+      "conditions": "welcome",
       "dialog_node": "Bem-vindo"
     }
   ],
