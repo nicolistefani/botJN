@@ -7,16 +7,19 @@
           "text": "até a proxima"
         },
         {
-          "text": "isso é tudo"
-        },
-        {
-          "text": "não, obrigado"
+          "text": "agradeço"
         },
         {
           "text": "não quero mais nada"
         },
         {
-          "text": "agradeço"
+          "text": "não, obrigado"
+        },
+        {
+          "text": "isso é tudo"
+        },
+        {
+          "text": "reservar"
         }
       ],
       "description": ""
@@ -25,9 +28,6 @@
       "intent": "saudacao",
       "examples": [
         {
-          "text": "Oi"
-        },
-        {
           "text": "Tudo bem?"
         },
         {
@@ -35,6 +35,9 @@
         },
         {
           "text": "Bom dia"
+        },
+        {
+          "text": "Oi"
         },
         {
           "text": "Ola"
@@ -46,22 +49,22 @@
       "intent": "trocar",
       "examples": [
         {
-          "text": "gostaria de fazer uma troca"
+          "text": "veio errado"
         },
         {
           "text": "trocar"
         },
         {
-          "text": "veio errado"
+          "text": "gostaria de fazer uma troca"
         },
         {
-          "text": "não coube"
+          "text": "quero trocar"
         },
         {
           "text": "comprei do tamanho errado"
         },
         {
-          "text": "quero trocar"
+          "text": "não coube"
         }
       ],
       "description": ""
@@ -70,12 +73,6 @@
       "intent": "horario_funcionamento",
       "examples": [
         {
-          "text": "qual horario de funcionamento?"
-        },
-        {
-          "text": "esta abeto?"
-        },
-        {
           "text": "Que horas abre?"
         },
         {
@@ -83,54 +80,121 @@
         },
         {
           "text": "fecha que horas?"
-        }
-      ],
-      "description": ""
-    },
-    {
-      "intent": "pedidos",
-      "examples": [
-        {
-          "text": "pedido"
         },
         {
-          "text": "gostaria de ver fotos"
+          "text": "qual horario de funcionamento?"
         },
         {
-          "text": "vou mandar fotos da roupa que eu gostei"
+          "text": "esta aberto hoje?"
         },
         {
-          "text": "conjuntos"
-        },
-        {
-          "text": "roupa feminina"
-        },
-        {
-          "text": "roupa masculina"
-        },
-        {
-          "text": "camisas"
-        },
-        {
-          "text": "laços"
-        },
-        {
-          "text": "shorts"
-        },
-        {
-          "text": "bermudas"
-        },
-        {
-          "text": "vestidos"
-        },
-        {
-          "text": "recem nascidos"
+          "text": "estão fazendo entegas?"
         }
       ],
       "description": ""
     }
   ],
   "entities": [
+    {
+      "entity": "complementoEntrega",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Rua",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "perto",
+          "synonyms": [
+            "proximo",
+            "vizinho"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "residencial",
+          "synonyms": [
+            "condominio"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "travessa",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Esquina",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Casa",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "Apt",
+          "synonyms": []
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "numeroResidencia",
+      "values": [
+        {
+          "type": "patterns",
+          "value": "numero",
+          "patterns": [
+            "[1-9]{4}"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "pedido",
+      "values": [
+        {
+          "type": "synonyms",
+          "value": "Quero pedir",
+          "synonyms": [
+            "pedir"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Pedir agora mesmo",
+          "synonyms": [
+            "pedir agora mesmo"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Pedido",
+          "synonyms": [
+            "pedido"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Comprar agora",
+          "synonyms": [
+            "Pedir agora"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "Comprar",
+          "synonyms": [
+            "Pedir"
+          ]
+        }
+      ],
+      "fuzzy_match": true
+    },
     {
       "entity": "cep",
       "values": [
@@ -149,12 +213,7 @@
       "values": [
         {
           "type": "synonyms",
-          "value": "gg",
-          "synonyms": []
-        },
-        {
-          "type": "synonyms",
-          "value": "p",
+          "value": "g",
           "synonyms": []
         },
         {
@@ -164,7 +223,12 @@
         },
         {
           "type": "synonyms",
-          "value": "g",
+          "value": "gg",
+          "synonyms": []
+        },
+        {
+          "type": "synonyms",
+          "value": "p",
           "synonyms": []
         }
       ],
@@ -175,15 +239,27 @@
       "values": [
         {
           "type": "synonyms",
-          "value": "reserva",
+          "value": "reservar",
           "synonyms": []
         },
         {
           "type": "synonyms",
-          "value": "reservar",
+          "value": "guardar",
+          "synonyms": [
+            "reserva"
+          ]
+        },
+        {
+          "type": "synonyms",
+          "value": "reserva",
           "synonyms": []
         }
       ],
+      "fuzzy_match": true
+    },
+    {
+      "entity": "sys-number",
+      "values": [],
       "fuzzy_match": true
     },
     {
@@ -191,17 +267,17 @@
       "values": [
         {
           "type": "synonyms",
-          "value": "cartao",
+          "value": "dinheiro",
           "synonyms": [
-            "debito",
-            "credito"
+            "especie"
           ]
         },
         {
           "type": "synonyms",
-          "value": "dinheiro",
+          "value": "cartao",
           "synonyms": [
-            "especie"
+            "debito",
+            "credito"
           ]
         }
       ],
@@ -228,25 +304,13 @@
   "dialog_nodes": [
     {
       "type": "frame",
-      "title": "pagamento",
-      "parent": "node_8_1590429041597",
-      "metadata": {
-        "_customization": {
-          "mcr": true
-        }
-      },
-      "conditions": "@pagamento",
-      "dialog_node": "node_8_1590450147609"
-    },
-    {
-      "type": "standard",
-      "title": "Reserva",
+      "title": "Entrega",
       "output": {
         "generic": [
           {
             "values": [
               {
-                "text": "🕛 Fazemos reserva com o prazo de um dia, após isso se seu pedido não for finalizado sua reserva será cancelada automaticamente, Agradecemos a compreensão. "
+                "text": "Ok, sua entrega é para o CEP: $cep, no numero: $numeroResidencia. O complemento é: $complementoEntrega\nSeu pedido deu <?(new Random().nextInt(5)*10+5)?> reais.\nQual será a forma de pagamento?"
               }
             ],
             "response_type": "text",
@@ -254,14 +318,97 @@
           }
         ]
       },
-      "parent": "node_9_1590426678914",
-      "conditions": "@reserva",
-      "dialog_node": "node_8_1590429080255",
-      "previous_sibling": "node_1_1590427118913"
+      "parent": "node_8_1590429041597",
+      "conditions": "@cep",
+      "dialog_node": "node_10_1590509041876",
+      "previous_sibling": "slot_9_1590509097007"
+    },
+    {
+      "type": "slot",
+      "parent": "node_8_1590429041597",
+      "dialog_node": "slot_9_1590509097007"
+    },
+    {
+      "type": "frame",
+      "title": "pagamento",
+      "parent": "node_10_1590509041876",
+      "metadata": {
+        "_customization": {
+          "mcr": true
+        }
+      },
+      "conditions": "@pagamento",
+      "dialog_node": "node_8_1590450147609",
+      "previous_sibling": "slot_7_1590601691489"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_10_1590509041876",
+      "variable": "$numeroResidencia",
+      "dialog_node": "slot_4_1590509378771",
+      "previous_sibling": "slot_6_1590509156718"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_10_1590509041876",
+      "variable": "$complementoEntrega",
+      "dialog_node": "slot_7_1590601691489",
+      "previous_sibling": "slot_4_1590509378771"
+    },
+    {
+      "type": "slot",
+      "output": {},
+      "parent": "node_10_1590509041876",
+      "variable": "$cep",
+      "dialog_node": "slot_6_1590509156718"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Qual o complemento do endereço?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_7_1590601691489",
+      "conditions": "@complementoEntrega",
+      "event_name": "nomatch",
+      "dialog_node": "handler_3_1590601735232",
+      "previous_sibling": "handler_8_1590601691499"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Qual o complemento do endereço?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_7_1590601691489",
+      "event_name": "focus",
+      "dialog_node": "handler_8_1590601691499",
+      "previous_sibling": "handler_10_1590601691499"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_7_1590601691489",
+      "context": {
+        "complementoEntrega": "@complementoEntrega"
+      },
+      "conditions": "@complementoEntrega",
+      "event_name": "input",
+      "dialog_node": "handler_10_1590601691499"
     },
     {
       "type": "standard",
-      "title": "Referencia",
+      "title": "ReferenciaReserva",
       "output": {
         "generic": [
           {
@@ -275,9 +422,93 @@
           }
         ]
       },
-      "parent": "node_9_1590426678914",
+      "parent": "node_10_1590504329198",
       "conditions": "@modelo",
-      "dialog_node": "node_1_1590427118913"
+      "dialog_node": "node_1_1590504486093"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Me informa o cep por favor"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_6_1590509156718",
+      "event_name": "focus",
+      "dialog_node": "handler_3_1590509156728",
+      "previous_sibling": "handler_10_1590509156728"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Me informa um cep válido por favor"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_6_1590509156718",
+      "conditions": "@cep",
+      "event_name": "nomatch",
+      "dialog_node": "handler_10_1590509308759",
+      "previous_sibling": "handler_3_1590509156728"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_6_1590509156718",
+      "context": {
+        "cep": "@cep.literal"
+      },
+      "conditions": "@cep",
+      "event_name": "input",
+      "dialog_node": "handler_10_1590509156728"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Me informa o número da residencia de entrega, por favor"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_4_1590509378771",
+      "conditions": "@numeroResidencia",
+      "event_name": "nomatch",
+      "dialog_node": "handler_7_1590509542537",
+      "previous_sibling": "handler_6_1590509378776"
+    },
+    {
+      "type": "event_handler",
+      "output": {
+        "text": {
+          "values": [
+            "Qual o número da residencia?"
+          ],
+          "selection_policy": "sequential"
+        }
+      },
+      "parent": "slot_4_1590509378771",
+      "event_name": "focus",
+      "dialog_node": "handler_6_1590509378776",
+      "previous_sibling": "handler_7_1590509378776"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_4_1590509378771",
+      "context": {
+        "numeroResidencia": "@numeroResidencia.literal"
+      },
+      "conditions": "@numeroResidencia",
+      "event_name": "input",
+      "dialog_node": "handler_7_1590509378776"
     },
     {
       "type": "response_condition",
@@ -293,6 +524,23 @@
       "conditions": "@pagamento:dinheiro",
       "dialog_node": "response_10_1590450526901",
       "previous_sibling": "response_1_1590450328848"
+    },
+    {
+      "type": "frame",
+      "title": "troco",
+      "output": {
+        "generic": [
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_8_1590450147609",
+      "conditions": "@pagamento:dinheiro",
+      "dialog_node": "node_10_1590450730270",
+      "previous_sibling": "slot_7_1590502352793"
     },
     {
       "type": "response_condition",
@@ -318,24 +566,10 @@
       "previous_sibling": "node_10_1590450730270"
     },
     {
-      "type": "standard",
-      "title": "troco",
-      "output": {
-        "generic": [
-          {
-            "values": [
-              {
-                "text": "Anotado, troco para x reais. Obrigado!!"
-              }
-            ],
-            "response_type": "text",
-            "selection_policy": "sequential"
-          }
-        ]
-      },
+      "type": "slot",
       "parent": "node_8_1590450147609",
-      "conditions": "@pagamento:dinheiro",
-      "dialog_node": "node_10_1590450730270"
+      "variable": "$pagamento",
+      "dialog_node": "slot_7_1590502352793"
     },
     {
       "type": "standard",
@@ -345,7 +579,107 @@
           {
             "values": [
               {
-                "text": "Ok, tudo certo com seu pedido. Qual a forma de pagamento?"
+                "text": "Ok.\nAqui está o resumo da sua reserva:\n...\n...\nLembre-se do prazo máximo de 1 dia.\nAguardamos ansiosamente sua compra!!"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_1_1590504486093",
+      "conditions": "@tamanho",
+      "dialog_node": "node_2_1590504486099"
+    },
+    {
+      "type": "standard",
+      "title": "ReferenciaPedido",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "🤩 Acabei de verificar e o produto que deseja temos em estoque, estão disponíveis os seguintes tamanhos : P , M , G , GG. Qual tamanho desejado?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_5_1590501615363",
+      "conditions": "@modelo",
+      "dialog_node": "node_1_1590427118913"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_7_1590502352793",
+      "event_name": "focus",
+      "dialog_node": "handler_6_1590502352797",
+      "previous_sibling": "handler_1_1590502352797"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_7_1590502352793",
+      "context": {
+        "pagamento": "@pagamento"
+      },
+      "conditions": "@pagamento",
+      "event_name": "input",
+      "dialog_node": "handler_1_1590502352797"
+    },
+    {
+      "type": "event_handler",
+      "output": {},
+      "parent": "slot_9_1590509097007",
+      "event_name": "focus",
+      "dialog_node": "handler_1_1590509097016",
+      "previous_sibling": "handler_6_1590509097016"
+    },
+    {
+      "type": "event_handler",
+      "parent": "slot_9_1590509097007",
+      "event_name": "input",
+      "dialog_node": "handler_6_1590509097016"
+    },
+    {
+      "type": "standard",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok, levarei troco para $troco"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          },
+          {
+            "values": [],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "parent": "node_10_1590450730270",
+      "context": {
+        "troco": "@sys-number"
+      },
+      "conditions": "@sys-number",
+      "dialog_node": "node_4_1590605852329"
+    },
+    {
+      "type": "standard",
+      "title": "Tamanho",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Ok, tudo certo com seu pedido. Qual cep para entrega?"
               }
             ],
             "response_type": "text",
@@ -365,13 +699,16 @@
           {
             "values": [
               {
-                "text": "Eu não entendi. Você pode tentar reformular a frase."
+                "text": "Eu não entendi. Você pode tentar reformular a frase? Eu posso te ajudar com:\nPedidos.\nTrocas.\nReservas."
               },
               {
                 "text": "Você pode reformular sua afirmação? Eu não estou entendendo."
               },
               {
                 "text": "Eu não entendi o sentido."
+              },
+              {
+                "text": "No momento eu só posso te ajudar com:\nPedidos.\nTrocas.\nReservas."
               }
             ],
             "response_type": "text",
@@ -392,7 +729,7 @@
           {
             "values": [
               {
-                "text": "🔄  Troca apenas com etiqueta, \n⏳ Prazo para troca de 5 dias,\n🚫 Não fazemos troca de peças promocionais,\n✔️ As trocas são realizadas apenas em loja física. \nPara mais informações entrar em contato por o telefone da loja. "
+                "text": "🔄  Troca apenas com etiqueta, \n⏳ Prazo para troca de 5 dias,\n🚫 Não fazemos troca de peças promocionais,\n✔️ As trocas são realizadas apenas em loja física. \nPara mais informações entrar em contato pelo telefone da loja (xx) xxxx-xxxx. "
               }
             ],
             "response_type": "text",
@@ -402,17 +739,17 @@
       },
       "conditions": "#trocar",
       "dialog_node": "node_10_1590429292055",
-      "previous_sibling": "node_9_1590426678914"
+      "previous_sibling": "node_10_1590504329198"
     },
     {
       "type": "standard",
-      "title": "Fazer pedido",
+      "title": "saudacao",
       "output": {
         "generic": [
           {
             "values": [
               {
-                "text": "📸 Consulte o catálogo que se encontra no nosso perfil acima, ou visite o nosso instagram e informe a referência que está na foto do produto desejado para solicitar o seu pedido! \n🛵 Taxa de entrega variadas por bairro!"
+                "text": "Olá, fique a vontade para 📸 consultar o nosso catálogo que se encontra no nosso perfil acima, ou visite o nosso Instagram. Quando decidir, volte aqui e me informe se quer pedir agora mesmo ou fazer uma reserva de produto. Lembre-se de guardar a referencia do(s) produto(s) escolhido(s) que consta nas fotos.\n🛵 Taxas de entrega variadas por bairro!"
               }
             ],
             "response_type": "text",
@@ -420,8 +757,9 @@
           }
         ]
       },
-      "conditions": "#pedidos",
-      "dialog_node": "node_9_1590426678914",
+      "conditions": "#saudacao",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_6_1590500101170",
       "previous_sibling": "Bem-vindo"
     },
     {
@@ -446,6 +784,48 @@
     },
     {
       "type": "standard",
+      "title": "Reserva",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "🕛 Fazemos reservas com o prazo máximo de um dia, após isso se seu pedido não for finalizado sua reserva será cancelada automaticamente. Agradecemos a compreensão. Qual a referencia do produto para reserva?"
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@reserva",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_10_1590504329198",
+      "previous_sibling": "node_5_1590501615363"
+    },
+    {
+      "type": "standard",
+      "title": "Pedido",
+      "output": {
+        "generic": [
+          {
+            "values": [
+              {
+                "text": "Certo, vamos pedir agora mesmo! Me informa a referência do(s) produto(s) por favor."
+              }
+            ],
+            "response_type": "text",
+            "selection_policy": "sequential"
+          }
+        ]
+      },
+      "conditions": "@pedido",
+      "digress_in": "does_not_return",
+      "dialog_node": "node_5_1590501615363",
+      "previous_sibling": "node_6_1590500101170"
+    },
+    {
+      "type": "standard",
       "title": "Bem-vindo",
       "output": {
         "generic": [
@@ -464,7 +844,11 @@
       "dialog_node": "Bem-vindo"
     }
   ],
-  "counterexamples": [],
+  "counterexamples": [
+    {
+      "text": "reserva"
+    }
+  ],
   "system_settings": {
     "disambiguation": {
       "prompt": "Você quis dizer:",
